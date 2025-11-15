@@ -1,5 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://c6bjxupm1biv8"]
+[gd_scene load_steps=53 format=3 uid="uid://c6bjxupm1biv8"]
 
+[ext_resource type="Script" uid="uid://bq1hbbvt4nf7a" path="res://scenes/cat.gd" id="1_o55mh"]
 [ext_resource type="Texture2D" uid="uid://creestaficoif" path="res://assets/main_character/Sprites/ATTACK 1.png" id="1_tol8a"]
 [ext_resource type="Texture2D" uid="uid://ddam0kyebkbmi" path="res://assets/main_character/Sprites/HURT.png" id="2_o55mh"]
 [ext_resource type="Texture2D" uid="uid://dgfln713jpfw5" path="res://assets/main_character/Sprites/IDLE.png" id="3_ic5u8"]
@@ -295,12 +296,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ywa8s")
 }],
-"loop": true,
+"loop": false,
 "name": &"running",
 "speed": 20.0
 }, {
 "frames": [{
-"duration": 1.01,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i2ncf")
 }, {
 "duration": 1.0,
@@ -336,7 +337,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3r2o8")
 }],
-"loop": true,
+"loop": false,
 "name": &"walking",
 "speed": 20.0
 }]
@@ -345,12 +346,14 @@ animations = [{
 size = Vector2(27, 20)
 
 [node name="cat" type="CharacterBody2D"]
+script = ExtResource("1_o55mh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d8tgv")
-animation = &"hit"
-frame_progress = 0.9111332
+animation = &"walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 4)
 shape = SubResource("RectangleShape2D_yelc1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
