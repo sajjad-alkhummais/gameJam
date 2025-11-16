@@ -9,7 +9,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="cat" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(535, 302)
+position = Vector2(586, 305)
 
 [node name="Camera2D" type="Camera2D" parent="cat"]
 position = Vector2(-1, 1)
