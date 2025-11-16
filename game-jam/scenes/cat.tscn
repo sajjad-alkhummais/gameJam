@@ -1,12 +1,16 @@
-[gd_scene load_steps=53 format=3 uid="uid://c6bjxupm1biv8"]
+[gd_scene load_steps=70 format=3 uid="uid://c6bjxupm1biv8"]
 
 [ext_resource type="Script" uid="uid://bq1hbbvt4nf7a" path="res://scenes/cat.gd" id="1_o55mh"]
 [ext_resource type="Texture2D" uid="uid://creestaficoif" path="res://assets/main_character/Sprites/ATTACK 1.png" id="1_tol8a"]
 [ext_resource type="Texture2D" uid="uid://ddam0kyebkbmi" path="res://assets/main_character/Sprites/HURT.png" id="2_o55mh"]
 [ext_resource type="Texture2D" uid="uid://dgfln713jpfw5" path="res://assets/main_character/Sprites/IDLE.png" id="3_ic5u8"]
+[ext_resource type="Texture2D" uid="uid://b47a6c3c1hpfp" path="res://assets/main_character/Sprites/ATTACK 1-export.png" id="3_v4p53"]
 [ext_resource type="Texture2D" uid="uid://dbij6kgdpx1bw" path="res://assets/main_character/Sprites/JUMP.png" id="4_8px16"]
 [ext_resource type="Texture2D" uid="uid://bftri36c706sb" path="res://assets/main_character/Sprites/RUN.png" id="5_kedyd"]
 [ext_resource type="Texture2D" uid="uid://chcdv4y37gung" path="res://assets/main_character/Sprites/WALK.png" id="6_v4p53"]
+[ext_resource type="AudioStream" uid="uid://buq10wn4sfd0u" path="res://assets/audio/jump.mp3" id="8_8px16"]
+[ext_resource type="AudioStream" uid="uid://bjf34ag5tvlka" path="res://assets/audio/slash.mp3" id="8_kedyd"]
+[ext_resource type="AudioStream" uid="uid://c8k6rgs8v8udk" path="res://assets/audio/dash.mp3" id="9_kedyd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32af4"]
 atlas = ExtResource("1_tol8a")
@@ -38,6 +42,50 @@ region = Rect2(480, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox7vo"]
 atlas = ExtResource("1_tol8a")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8tgv"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yelc1"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkwyx"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g3uo"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpcuc"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mmjk"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vho0u"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqnr4"]
+atlas = ExtResource("3_v4p53")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o55mh"]
+atlas = ExtResource("5_kedyd")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic5u8"]
+atlas = ExtResource("5_kedyd")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8px16"]
+atlas = ExtResource("5_kedyd")
 region = Rect2(560, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3hvw"]
@@ -209,7 +257,50 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 15.0
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8tgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yelc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkwyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g3uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpcuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mmjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vho0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqnr4")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o55mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic5u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8px16")
+}],
+"loop": false,
+"name": &"dashing",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -224,7 +315,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yf1kj")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 10.0
 }, {
@@ -269,7 +360,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jumping",
-"speed": 8.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -345,14 +436,63 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yelc1"]
 size = Vector2(27, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8px16"]
+size = Vector2(18, 37)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4p53"]
+bg_color = Color(0.10980392, 0.7254902, 0, 1)
+
 [node name="cat" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_o55mh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d8tgv")
-animation = &"attack"
+
+animation = &"attack_down"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 4)
 shape = SubResource("RectangleShape2D_yelc1")
+
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-29, 0)
+shape = SubResource("RectangleShape2D_8px16")
+disabled = true
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("8_kedyd")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("8_8px16")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("9_kedyd")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Label"]
+layout_mode = 0
+offset_left = -27.999998
+offset_top = -21.000004
+offset_right = 56.0
+offset_bottom = 5.999996
+scale = Vector2(0.62896603, 0.15709907)
+theme_override_styles/fill = SubResource("StyleBoxFlat_v4p53")
+value = 40.0
+show_percentage = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_finished"]
