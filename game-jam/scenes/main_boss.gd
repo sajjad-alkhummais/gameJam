@@ -56,7 +56,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_hitbox_entered(body: Node2D) -> void:
 	#body.take_damage()
-	print("Take damage")
+	if body is player:
+		body.take_damage(15,direction)
 	
 
 

@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://boxo4re3d0t20"]
+[gd_scene load_steps=6 format=3 uid="uid://boxo4re3d0t20"]
 
 [ext_resource type="PackedScene" uid="uid://c6bjxupm1biv8" path="res://scenes/cat.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://7tfw7esy3a5i" path="res://scenes/tile_map_layer.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://coxbagie8q4du" path="res://scenes/danger_zone.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://qxfwvb01spn5" path="res://scenes/MainBoss.tscn" id="4_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 
 [node name="Game" type="Node2D"]
 
 [node name="cat" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(586, 305)
+position = Vector2(4986, 54)
 
 [node name="Camera2D" type="Camera2D" parent="cat"]
 position = Vector2(-1, 1)
@@ -23,3 +24,7 @@ position_smoothing_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/danger_zone"]
 position = Vector2(4, 663)
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="MainBoss" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(6188, 80)
+scale = Vector2(2, 2)

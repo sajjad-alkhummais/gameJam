@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	
 	if not can_control: return
+	if health == 0: handle_danger()
 	if Input.is_action_just_pressed("jump") && jump_count < 1:
 		$Sounds/JumpSound.play()
 		velocity.y = JUMP_VELOCITY  
